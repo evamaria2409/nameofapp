@@ -14,3 +14,4 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>

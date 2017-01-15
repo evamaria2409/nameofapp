@@ -1,3 +1,32 @@
 // Place all the styles related to the static_pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+h1 {
+	font-family: Georgia, Cambria, TimesNewRoman;
+	text-align: center;
+	margin-bottom: 40px;
+	color: black;
+	margin-top: 80px;
+}
+
+.navbar-brand {
+  text-transform: uppercase;
+  color: pink !important;
+}  
+
+.navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover { 
+  color: yellow !important; 
+}
+
+.navbar-inverse .navbar-nav {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.copyright {
+  padding-right: 30px;
+  padding-top: 10px;
+  padding-bottom: 30px;
+  float: right;
+}
