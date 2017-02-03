@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Object Names</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @object_names.each do |object_name| %>
+      <tr>
+        <td><%= link_to 'Show', object_name %></td>
+        <td><%= link_to 'Edit', edit_object_name_path(object_name) %></td>
+        <td><%= link_to 'Destroy', object_name, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Object Name', new_object_name_path %>
