@@ -71,4 +71,11 @@ class ProductsController < ApplicationController
     def product_params
       params.require(:product).permit(:name, :description, :image_url, :colour)
     end
+
+  def index
+   @products = Product.limit(3)
+   render layout: "products"
+  end
+
 end
+
