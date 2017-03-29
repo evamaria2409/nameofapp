@@ -1,3 +1,3 @@
 class Product < ApplicationRecord
-	has_may :orders
+	has_many :orders
 end
