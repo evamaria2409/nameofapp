@@ -26,18 +26,27 @@
     <%= f.text_field :image_url %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-
   <div class="field">
     <%= f.label :colour %><br>
     <%= f.text_field :colour %>
   </div>
 
   <div class="field">
-  <%= f.label :price %><br>
-  <%= f.text_field :price %>
+    <%= f.label :price %><br>
+    <%= f.text_field :price %>
   </div>
+
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<%= form_for(product) :person do |f| %>
+  First name: <%= f.text_field :first_name %>
+  Last name : <%= f.text_field :last_name %>
+  Biography : <%= text_area :person, :biography %>
+  Admin?    : <%= check_box_tag "person[admin]", "1", @person.company.admin? %>
+  <%= f.submit %>
 
 <% end %>
