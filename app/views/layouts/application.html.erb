@@ -27,6 +27,9 @@
   <div class="container">
   <div class="col-sm-12">
 
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container-fluid">
     <div class="navbar-header">
@@ -44,6 +47,17 @@
        <li><a href="#">Contact</a></li>
 
       </ul>
+
+      <ul class="nav pull-right">
+        <li>
+         <% if user_signed_in? %>
+          <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+         <% else %>
+          <%= link_to('Login', new_user_session_path) %>
+         <% end %>
+        </li>
+      </ul>
+      
     </div>
   </nav>
   </div>
