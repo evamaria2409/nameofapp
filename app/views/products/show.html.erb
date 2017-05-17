@@ -27,3 +27,6 @@
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
+
+<%= @product.comments.order(rating: :desc).first %>
+<%= @product.highest_rating_comment %>
