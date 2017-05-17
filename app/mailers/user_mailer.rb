@@ -7,3 +7,5 @@ class UserMailer < ApplicationMailer
         :to => 'your-email@example.com',
         :subject => "A new contact form message from #{name}")
   end
+
+end
