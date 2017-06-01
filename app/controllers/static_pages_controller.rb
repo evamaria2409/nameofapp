@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
 
-  def index
+  def static_pages/index
     @featured_product = Product.first
     @products = Product.limit(3)
   end
