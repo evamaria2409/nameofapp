@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+    validates :name, presence: true
     has_many :orders
     has_many :comments
 
@@ -8,6 +9,7 @@ class Product < ApplicationRecord
 
   def highest_rating_comment
   	comments.rating_desc.first
+    self.per_page = 10
   end
 
   def average_rating

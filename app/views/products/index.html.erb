@@ -1,6 +1,9 @@
 <h1>Listing products</h1>
 
-<table>
+<%= will_paginate @products %>
+
+<table style="width:500px">
+
   <thead>
     <tr>
       <th>Name</th>
@@ -15,7 +18,9 @@
   <tbody>
     <%= render partial: "product", collection: @products %>
   </tbody>
+  
 </table>
+<%= will_paginate @products %>
 
 <br>
 
