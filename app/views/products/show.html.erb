@@ -25,8 +25,26 @@
   <%= @product.price %>
 </p>
 
+<p>Average Rating: <div class="rated" data-score="<%= @product.average_rating %>"></div> </p>
+
+<p>
+  <%= f.label :body, "Comments" %><br>
+  <%= f.text_area :body %>
+</p>
+
+<p>
+  <div class="rating"></div>
+</p>
+
+<p>
+  <%= f.submit "Submit" %>
+</p>
+
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
+
+<%= render 'new_comment' %>
+<%= render 'comments' %>
 
 <%= @product.comments.order(rating: :desc).first %>
 <%= @product.highest_rating_comment %>
