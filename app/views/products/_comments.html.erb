@@ -9,9 +9,9 @@
     			<% end %>
             </p>
             <p><%= "Rating: #{comment.rating}/5" %></p>
+            <div class="rated" data-score="<%= comment.rating %>"></div>
             <p><%= comment.body %></p>
         </div>
     <% end %>
 </div>
 
-<div class="rated" data-score="<%= comment.rating %>"></div>

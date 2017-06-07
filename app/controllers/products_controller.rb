@@ -1,16 +1,15 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, except: [:index, :show]
 
   # GET /products
   # GET /products.json
 
   def index
+    @products = Product.all.paginate(page: params[:page], per_page: 5)
     if params[:q]
       search_term = params[:q]
       @products = Product.search(search_term)
-    else
-      @products = Product.all.paginate(page: params[:page], per_page: 5)
     end
   end
 
@@ -41,19 +40,6 @@ class ProductsController < ApplicationController
       else
         format.html { render :new }
         format.json { render json: @product.errors, status: :unprocessable_entity }
-      end
-    end
-
-    @product = Product.find(params[:product_id])
-    @comment = @product.comments.new(comment_params)
-    @comment.user = current_user
-    respond_to do |format|
-      if @comment.save
-        format.html { redirect_to @product, notice: 'Review was created successfully.' }
-        format.json { render :show, status: :created, location: @product }
-      else
-        format.html { redirect_to @product, alert: 'Review was not saved successfully.' }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end
     
