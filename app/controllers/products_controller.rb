@@ -9,7 +9,7 @@ class ProductsController < ApplicationController
     @products = Product.all.paginate(page: params[:page], per_page: 5)
     if params[:q]
       search_term = params[:q]
-      @products = Product.search(search_term)
+      @products = @products.search(search_term)
     end
   end
 
