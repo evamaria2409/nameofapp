@@ -4,12 +4,12 @@ describe UsersController, type: :controller do
     
     before do
     	@user1 = FactoryGirl.create(:user)
-    	@user2 = User.create!(first_name: "Eva", last_name: "Rietschel", email: "eva.maria@voguemail.com", password: "123456789", admin: false)
+    	@user2 = FactoryGirl.create(:user)
   	end
 
   describe 'GET #show' do
 
-     context 'when a user is logged in' do
+     context 'User is logged in' do
      	
      	before do
       		sign_in @user1
@@ -17,13 +17,13 @@ describe UsersController, type: :controller do
 
     	it "loads correct user details" do
     		get :show, params: { id: @user1.id }
-    		expect(response).to be_ok
+    		expect(response).to have_http_status(200)
     		expect(assigns(:user)).to eq @user1
     	end
 
     	it 'other users profile restricted' do
 	        get :show, params: { id: @user2.id }
-	        expect(response).to redirect_to(root_path)
+	        expect { raise "You are not authorized to access this page." }.to raise_error(RuntimeError)
       	end
 
      end
