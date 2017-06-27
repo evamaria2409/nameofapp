@@ -1,10 +1,11 @@
 class PaymentsController < ApplicationController
 	
     def create
-        token = params[:stripeToken]
+        
         @product = Product.find(params[:product_id])
         @user = current_user
 
+        token = params[:stripeToken]
         begin
             charge = Stripe::Charge.create(
                 amount: (@product.price*100).to_i,
@@ -13,15 +14,14 @@ class PaymentsController < ApplicationController
                 description: params[:stripeEmail]
             )
 
-            if charge.paid
-                Order.create(
-                    product_id: @product.id,
-                    user_id: @user.id,
-                    total: @product.price
-                )
-            end
-
-    flash[:success] = "Your payment was processed successfully"
+        if charge.paid
+            Order.create(
+              product_id: @product.id,
+              user_id: @user.id,
+              total: @product.price
+            )
+            flash[:success] = "Your payment was processed successfully"
+        end
 
         rescue Stripe::CardError => e
             body = e.json_body
@@ -30,5 +30,6 @@ class PaymentsController < ApplicationController
         end
 
         redirect_to product_path(@product)
+        
     end
 end
