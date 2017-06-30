@@ -36,7 +36,6 @@
 
 <%= render 'new_comment' %>
 <%= render 'comments' %>
-<%= will_paginate @comments %>
 
 <%= @product.comments.order(rating: :desc).first %>
 <%= @product.highest_rating_comment %>

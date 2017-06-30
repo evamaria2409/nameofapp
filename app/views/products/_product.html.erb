@@ -1,9 +1,8 @@
-<tr>
-        <td><%= product.name %></td>
-        <td><%= product.description %></td>
-        <td><%= image_tag product.image_url, class: "product-thumb" %></td>
-        <td><%= product.colour %></td>
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
- </tr>
+<div class="col-md-4">
+  <div><%= link_to image_tag(product.image_url.present? ? product.image_url : 'http://www.freeiqquizz.me/files/8667890523.jpg', class: 'product-thumb'), product %></div>
+  <h4><%= link_to product.name, product %></h4>
+  
+  <p><%= product.price %></p>
+  <p><%= link_to 'Edit', edit_product_path(product) %></p>
+  <p><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+</div>
