@@ -12,7 +12,7 @@
 
 <p>
   <strong>Image url:</strong>
-  <%= @product.image_url %>
+  <%= image_tag(@product.image_url, data_zoom_image: @product.image_url, width: "350", class: "img-zoom") %>
 </p>
 
 <p>
@@ -41,3 +41,5 @@
 
 <%= @product.comments.order(rating: :desc).first %>
 <%= @product.highest_rating_comment %>
+
+
