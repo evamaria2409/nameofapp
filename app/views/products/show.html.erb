@@ -12,7 +12,9 @@
 
 <p>
   <strong>Image url:</strong>
+  <% if @product.image_url.present? %>
   <%= image_tag(@product.image_url, class: "img-responsive img-zoom", data_zoom_image: "@product.image_url") %>
+  <% end %>
 </p>
 
 <p>
