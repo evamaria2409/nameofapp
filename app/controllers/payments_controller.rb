@@ -1,5 +1,5 @@
 class PaymentsController < ApplicationController
-	
+
     def create
         @product = Product.find(params[:product_id])
         @user = current_user
@@ -29,6 +29,6 @@ class PaymentsController < ApplicationController
         end
 
         redirect_to product_path(@product)
-        
+
     end
 end
