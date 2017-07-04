@@ -16,3 +16,5 @@
 //= require jquery.raty
 //= require_tree .
 //= require jquery.elevateZoom-3.0.8.min.js 
+
+$("#zoom_01").elevateZoom();
