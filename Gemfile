@@ -72,5 +72,6 @@ gem 'rails-controller-testing'
 
 gem 'stripe'
 
+gem 'dalli'
 
 

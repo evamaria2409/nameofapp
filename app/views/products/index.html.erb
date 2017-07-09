@@ -3,7 +3,9 @@
 <%= will_paginate @products %>
 
 <div class="row">
-  <%= render partial: "product", collection: @products %>
+	<% cache(cache_key_for_products) do %>
+	  <%= render @products %>
+	<% end %>
 </div>
 
 <%= will_paginate @products %>
