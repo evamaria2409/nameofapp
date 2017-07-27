@@ -5,4 +5,10 @@ describe User, type: :model do
     @user = FactoryGirl.build(:user, email: "not_an_email")
     expect(@user).to_not be_valid
   end
+
+  it "invalid password rejected" do
+    @user = FactoryGirl.build(:user, password: "12")
+    expect(@user).not_to be_valid
+  end
+  
 end

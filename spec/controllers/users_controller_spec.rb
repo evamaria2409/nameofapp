@@ -38,6 +38,23 @@ describe UsersController, type: :controller do
 
   end
 
+  describe "POST create" do
+    context "with valid attributes" do
+      it "creates a new user" do
+        expect{
+          post :create, params: { user: FactoryGirl.create(:user) }
+        }.to change(User,:count).by(1)
+      end
+    end
+
+    context "with invalid attributes" do
+      it "does not create a new user" do
+        expect{
+          post :create, params: { user: FactoryGirl.create(:user, password: "12") }
+        }.to raise_error(/Password is too short/)
+      end
+    end
+
 end
 
 end
