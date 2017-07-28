@@ -1,6 +1,10 @@
-$("#new_comment").html("Thank you for your review!");
-$(".add-review-text").hide();
-$(".product-reviews").pretend("<%= j render @comment %>");
-$("#average-rating").attr('data-score', "<%= @product.average_rating %");
+received: function(data) {
 
-refreshRating();
+	$("#new_comment").html("Thank you for your review!");
+	$(".add-review-text").hide();
+	$(".product-reviews").prepend(data.comment);
+	$("#average-rating").attr('data-score', data.average_rating);
+
+	refreshRating();
+
+},
