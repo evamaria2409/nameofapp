@@ -25,6 +25,8 @@ describe UsersController, type: :controller do
       it 'other users profile restricted' do
           get :show, params: { id: @user2.id }
           expect { raise "You are not authorized to access this page." }.to raise_error(RuntimeError)
+      end
+
     end
 
   end

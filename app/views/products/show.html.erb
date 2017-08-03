@@ -2,7 +2,7 @@
 
 <% cache @product do %>
 
-  <p>
+  <p data-product-id= "<%= @product.id %>">
     <strong>Name:</strong>
     <%= @product.name %>
   </p>
