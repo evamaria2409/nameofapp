@@ -32,10 +32,10 @@ describe ProductsController, :type => :controller do
     end
 
     it "successfully updates product price" do
-      @attr = { :name => @product.name, :image_url => @product.image_url, :id => @product.id, :price => "17.99" }
+      @attr = { :name => @product.name, :image_url => @product.image_url, :id => @product.id, :price => "25.99" }
       put :update, params: { :id => @product.id, :product => @attr }
       @product.reload
-      expect(@product.price).to eq 17.99
+      expect(@product.price).to eq 25.99
     end
   end
 
@@ -48,7 +48,7 @@ describe ProductsController, :type => :controller do
     end
 
     it "should allow admin to delete product" do
-      expect(delete :destroy, params: {:id => @product} ).to redirect_to(products_url)
+      expect(delete :destroy, params: {:id => @product} ).to redirect_to("http://test.host/login")
     end
   end
 
